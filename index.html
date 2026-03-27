@@ -4,111 +4,85 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TUYE ANGOLA</title>
+<title>Tuye Angola - Viagens Além do Mapa</title>
 
-<!-- PWA -->
-<link rel="manifest" href="manifest.json">
-
+<!-- Estilo -->
 <style>
-
 body {
-  margin:0;
-  font-family:'Segoe UI', sans-serif;
-  background:#f4f6f9;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
 }
 
-/* HEADER */
 header {
-  background:#002f5b;
-  color:white;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+    background: #0b3d91;
+    color: white;
+    padding: 15px;
+    text-align: center;
 }
 
-.logo {
-  font-weight:bold;
-}
-
-/* MENU MOBILE */
-.menu {
-  display:none;
-}
-
-.menu a {
-  color:white;
-  margin:10px;
-  text-decoration:none;
-}
-
-/* HERO */
 .hero {
-  background:url('https://source.unsplash.com/1600x900/?angola,tourism') center/cover;
-  height:90vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-align:center;
+    text-align: center;
+    padding: 20px;
 }
 
-.hero-content h1 {
-  font-size:40px;
+.hero button {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
 }
 
-button {
-  padding:12px 20px;
-  margin:10px;
-  border:none;
-  cursor:pointer;
-  border-radius:6px;
+.hero button.inscrever {
+    background: #ff9800;
 }
 
-.primary {
-  background:#007BFF;
-  color:white;
+.video {
+    text-align: center;
+    padding: 20px;
 }
 
-.whatsapp {
-  background:#25D366;
-  color:white;
+video {
+    width: 90%;
+    border-radius: 10px;
 }
 
-/* SEÇÕES */
 .section {
-  padding:40px 20px;
-  text-align:center;
+    padding: 20px;
 }
 
-/* CARDS */
 .cards {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .card {
-  background:white;
-  padding:20px;
-  margin:10px;
-  border-radius:10px;
-  width:250px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* FOOTER */
+.card img {
+    width: 100%;
+}
+
+.card p {
+    padding: 10px;
+}
+
 footer {
-  background:#002f5b;
-  color:white;
-  text-align:center;
-  padding:20px;
+    background: #0b3d91;
+    color: white;
+    text-align: center;
+    padding: 15px;
 }
-
-/* MOBILE */
-@media(max-width:768px){
-  .cards { flex-direction:column; }
-}
-
 </style>
 
 </head>
@@ -116,82 +90,93 @@ footer {
 <body>
 
 <header>
-  <div class="logo">TUYE ANGOLA</div>
-
-  <nav class="menu">
-    <a href="#sobre">Sobre</a>
-    <a href="#eventos">Eventos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+    <h1>🌍 Tuye Angola</h1>
+    <p>Viagens Além do Mapa</p>
 </header>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Transformando Angola</h1>
+<div class="hero">
+    <h2>Explore Angola como nunca antes</h2>
 
-    <button class="primary" onclick="scrollForm()">
-      Inscrever-se
+    <!-- BOTÃO INSCRIÇÃO -->
+    <button class="inscrever" onclick="window.open('https://tuyeangola-inscricao.netlify.app', '_blank')">
+        📲 Inscrever-se
     </button>
 
-    <button class="whatsapp" onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8','_blank')">
-      Entrar no Grupo
+    <!-- BOTÃO WHATSAPP -->
+    <button onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8', '_blank')">
+        💬 Entrar no Grupo WhatsApp
     </button>
-  </div>
-</section>
+</div>
 
-<!-- SOBRE -->
-<section class="section" id="sobre">
-  <h2>Sobre</h2>
-  <p>Associação TUYE ANGOLA dedicada ao turismo e desenvolvimento social.</p>
-</section>
+<!-- VÍDEO -->
+<div class="video">
+    <h2>🎥 Turismo em Angola</h2>
+    <video controls>
+        <source src="video.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+</div>
+
+<!-- LUGARES TURÍSTICOS -->
+<div class="section">
+    <h2>🗺️ Locais Turísticos</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://source.unsplash.com/800x600/?kalandula,angola" />
+            <p>🌊 Quedas de Kalandula</p>
+        </div>
+
+        <div class="card">
+            <img src="https://source.unsplash.com/800x600/?namibe,desert" />
+            <p>🏜️ Deserto do Namibe</p>
+        </div>
+
+        <div class="card">
+            <img src="https://source.unsplash.com/800x600/?luanda,city" />
+            <p>🏙️ Cidade de Luanda</p>
+        </div>
+
+        <div class="card">
+            <img src="https://source.unsplash.com/800x600/?tundavala,angola" />
+            <p>⛰️ Fenda da Tundavala</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- INFORMAÇÃO -->
+<div class="section">
+    <h2>📍 Sobre a Tuye Angola</h2>
+    <p>
+        A Tuye Angola é uma associação dedicada ao turismo, viagens e desenvolvimento,
+        promovendo a descoberta dos melhores destinos de Angola e experiências únicas.
+    </p>
+
+    <p>
+        📌 Sede: Angola  
+        📞 Contato: +244 929 31 12 20
+        🌐 Website: tuyeangola.netlify.app  
+        🌐tuyeangola@gmail.com
+    </p>
+</div>
 
 <!-- EVENTOS -->
-<section class="section" id="eventos">
-  <h2>Eventos</h2>
+<div class="section">
+    <h2>📅 Agenda de Eventos</h2>
+    <ul>
+        <li>📍 Excursão às Quedas de Kalandula</li>
+        <li>📍 Passeio no Namibe</li>
+        <li>📍 Roteiro histórico de Luanda</li>
+    </ul>
+</div>
 
-  <div class="cards">
-    <div class="card">Cuchi - Turismo Comunitário</div>
-    <div class="card">Cuito Cuanavale - História</div>
-    <div class="card">Menongue - Cultura</div>
-  </div>
-</section>
-
-<!-- MAPA -->
-<section class="section">
-  <h2>Mapa</h2>
-  <iframe 
-    src="https://www.google.com/maps?q=Angola&output=embed"
-    width="100%" height="300">
-  </iframe>
-</section>
-
-<!-- INSCRIÇÃO REAL -->
-<section class="section" id="inscricao">
-  <h2>Inscrição</h2>
-
-  <form name="inscricao" method="POST" data-netlify="true">
-    <input type="text" name="nome" placeholder="Nome" required style="padding:10px;width:80%;margin:10px;"><br>
-    <input type="email" name="email" placeholder="Email" required style="padding:10px;width:80%;margin:10px;"><br>
-    <button class="primary">Enviar</button>
-  </form>
-</section>
-
-<!-- CONTACTO -->
-<section class="section" id="contacto">
-  <h2>Contacto</h2>
-  <p>Email: tuyeangola@email.com</p>
-</section>
-
+<!-- RODAPÉ -->
 <footer>
-  © 2026 TUYE ANGOLA
+    <p>© 2026 Tuye Angola</p>
 </footer>
-
-<script>
-function scrollForm(){
-  document.getElementById("inscricao").scrollIntoView({behavior:"smooth"});
-}
-</script>
 
 </body>
 </html>
