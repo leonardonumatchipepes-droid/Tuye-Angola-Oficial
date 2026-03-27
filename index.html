@@ -49,6 +49,11 @@ nav a {
   color:white;
 }
 
+  <section id="mapa">
+<h2>🗺️ Mapa de Angola</h2>
+<div id="map" style="height:300px;"></div>
+</section>
+
 /* BUTTONS */
 button {
   padding:12px;
@@ -88,6 +93,22 @@ button {
   object-fit:cover;
   border-radius:10px;
 }
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+var map = L.map('map').setView([-12.5, 18.5], 5);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '© OpenStreetMap'
+}).addTo(map);
+
+// Pontos turísticos
+L.marker([-9.0, 15.0]).addTo(map).bindPopup("Luanda");
+L.marker([-9.3, 14.9]).addTo(map).bindPopup("Kalandula");
+L.marker([-17.0, 18.5]).addTo(map).bindPopup("Cuando Cubango");
+</script>
+
 
 /* CARROSSEL */
 .carousel img { display:none; width:100%; max-width:600px; }
@@ -99,6 +120,85 @@ iframe {
   height:300px;
 }
 
+  <section>
+<h2>🧠 Assistente IA</h2>
+
+<input id="pergunta" placeholder="Pergunte algo sobre Angola">
+<button onclick="responder()">Perguntar</button>
+
+<p id="resposta"></p>
+</section>
+
+<script>
+function responder() {
+let q = document.getElementById("pergunta").value.toLowerCase();
+
+if (q.includes("angola")) {
+document.getElementById("resposta").innerText =
+"Angola é um país rico em cultura e belezas naturais.";
+} else if (q.includes("turismo")) {
+document.getElementById("resposta").innerText =
+"O turismo em Angola está em crescimento.";
+} else {
+document.getElementById("resposta").innerText =
+"Pergunta não reconhecida.";
+}
+}
+</script>
+
+  <button onclick="notificar()">Ativar Notificações</button>
+
+<script>
+function notificar() {
+  Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+      new Notification("TUYE ANGOLA", {
+        body: "Bem-vindo à plataforma de turismo!",
+      });
+    }
+  });
+}
+</script>
+
+  
+<section id="stats">
+<h2>📊 Estatísticas</h2>
+
+<p>Total de visitantes: <span id="visitas">0</span></p>
+<p>Inscrições: <span id="inscricoes">0</span></p>
+<script>
+// REGISTAR SERVICE WORKER
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</section>
+
+<script>
+// contador simples
+let visitas = localStorage.getItem("visitas") || 0;
+visitas++;
+localStorage.setItem("visitas", visitas);
+document.getElementById("visitas").innerText = visitas;
+
+let inscritos = JSON.parse(localStorage.getItem("inscritos")) || [];
+document.getElementById("inscricoes").innerText = inscritos.length;
+</script>
+
+  <section id="videos">
+<h2>🎥 Angola em Vídeo</h2>
+
+<iframe width="100%" height="200"
+src="https://www.youtube.com/embed/7Y3bHk7XlqY"
+allowfullscreen></iframe>
+
+<iframe width="100%" height="200"
+src="https://www.youtube.com/embed/1KxkZx7xZ3E"
+allowfullscreen></iframe>
+
+</section>
+ 
 /* FORM */
 form {
   max-width:400px;
