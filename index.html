@@ -5,54 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TUYE ANGOLA</title>
 
+<!-- MAPA -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
 <style>
-body { margin:0; font-family:Arial; }
-
-/* HEADER */
-header {
-  position:absolute;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px;
-  z-index:10;
-}
-header img { height:45px; }
-
-nav a {
+body {
+  margin:0;
+  font-family:Arial;
+  background:#0b1d3a;
   color:white;
-  margin:8px;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:14px;
 }
 
 /* HERO */
-.hero { height:100vh; position:relative; }
+.hero {
+  height:100vh;
+  position:relative;
+}
+
 .hero video {
-  width:100%; height:100%;
+  width:100%;
+  height:100%;
   object-fit:cover;
 }
+
 .overlay {
   position:absolute;
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.5);
 }
+
 .hero-content {
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
   text-align:center;
-  color:white;
 }
-
-  <section id="mapa">
-<h2>🗺️ Mapa de Angola</h2>
-<div id="map" style="height:300px;"></div>
-</section>
 
 /* BUTTONS */
 button {
@@ -62,38 +51,166 @@ button {
   border-radius:5px;
   cursor:pointer;
 }
+
 .btn { background:#007BFF; color:white; }
 .whatsapp { background:#25D366; color:white; }
 
 /* SECTIONS */
 .section {
-  padding:50px 15px;
+  padding:40px 20px;
   text-align:center;
 }
 
 /* CARDS */
 .card {
-  max-width:600px;
-  margin:10px auto;
+  background:#112244;
   padding:15px;
-  background:#f4f4f4;
-  border-left:5px solid #007BFF;
+  margin:10px auto;
+  max-width:500px;
+  border-radius:10px;
 }
 
 /* TURISMO */
-.turismo {
+.grid {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:15px;
+  gap:10px;
 }
-.turismo img {
-  width:300px;
-  height:200px;
+
+.grid img {
+  width:250px;
+  height:180px;
   object-fit:cover;
   border-radius:10px;
 }
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+/* MAPA */
+#map {
+  height:300px;
+}
+
+/* FOOTER */
+footer {
+  background:#021428;
+  padding:15px;
+  text-align:center;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+<video autoplay muted loop>
+<source src="video.mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+<h1>TUYE ANGOLA</h1>
+<p id="slogan">Turismo • Desenvolvimento • Transformação</p>
+
+<button class="btn" onclick="goInscricao()">Inscrever-se</button>
+
+<button class="whatsapp" onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8')">
+WhatsApp
+</button>
+
+</div>
+</div>
+
+<!-- TURISMO -->
+<div class="section">
+<h2>🌍 Zonas Turísticas de Angola</h2>
+
+<div class="grid">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Kalandula_Falls_Angola.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Benguela_coast.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Luanda_Skyline.jpg">
+</div>
+</div>
+
+<!-- VÍDEOS -->
+<div class="section">
+<h2>🎥 Vídeos</h2>
+
+<iframe width="100%" height="200"
+src="https://www.youtube.com/embed/7Y3bHk7XlqY" allowfullscreen></iframe>
+
+</div>
+
+<!-- MAPA -->
+<div class="section">
+<h2>🗺️ Mapa de Angola</h2>
+<div id="map"></div>
+</div>
+
+<!-- EVENTOS -->
+<div class="section">
+<h2>📅 Eventos</h2>
+
+<div class="card">Evento em Luanda</div>
+<div class="card">Turismo Cubango</div>
+
+</div>
+
+<!-- AGENDA -->
+<div class="section">
+<h2>📆 Agenda</h2>
+
+<input id="evento" placeholder="Evento">
+<input type="date" id="data">
+
+<button class="btn" onclick="addEvento()">Adicionar</button>
+
+<ul id="lista"></ul>
+</div>
+
+<!-- IA -->
+<div class="section">
+<h2>🧠 Assistente IA</h2>
+
+<input id="q" placeholder="Pergunte algo">
+<button onclick="ia()">Perguntar</button>
+
+<p id="r"></p>
+</div>
+
+<!-- AUTOR -->
+<div class="section">
+<h2>👨‍💼 Autores</h2>
+
+<div class="card">
+<p><b>Leonardo Numa Tchipepe</b></p>
+<p>Desenvolvedor e visionário da plataforma</p>
+</div>
+
+</div>
+
+<!-- ESTATÍSTICAS -->
+<div class="section">
+<h2>📊 Estatísticas</h2>
+
+<p>Visitantes: <span id="v"></span></p>
+<p>Inscrições: <span id="i"></span></p>
+
+</div>
+
+<!-- CONTACTO -->
+<div class="section">
+<h2>📞 Contacto</h2>
+<p>tuyeangola@gmail.com</p>
+</div>
+
+<footer>
+© 2026 TUYE ANGOLA
+</footer>
+
+<!-- MAPA SCRIPT -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
@@ -103,331 +220,59 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '© OpenStreetMap'
 }).addTo(map);
 
-// Pontos turísticos
 L.marker([-9.0, 15.0]).addTo(map).bindPopup("Luanda");
 L.marker([-9.3, 14.9]).addTo(map).bindPopup("Kalandula");
 L.marker([-17.0, 18.5]).addTo(map).bindPopup("Cuando Cubango");
 </script>
 
-
-/* CARROSSEL */
-.carousel img { display:none; width:100%; max-width:600px; }
-.carousel img.active { display:block; margin:auto; }
-
-/* MAPA */
-iframe {
-  width:100%;
-  height:300px;
-}
-
-  <section>
-<h2>🧠 Assistente IA</h2>
-
-<input id="pergunta" placeholder="Pergunte algo sobre Angola">
-<button onclick="responder()">Perguntar</button>
-
-<p id="resposta"></p>
-</section>
-
+<!-- SCRIPTS -->
 <script>
-function responder() {
-let q = document.getElementById("pergunta").value.toLowerCase();
 
-if (q.includes("angola")) {
-document.getElementById("resposta").innerText =
-"Angola é um país rico em cultura e belezas naturais.";
-} else if (q.includes("turismo")) {
-document.getElementById("resposta").innerText =
-"O turismo em Angola está em crescimento.";
-} else {
-document.getElementById("resposta").innerText =
-"Pergunta não reconhecida.";
+// REDIRECIONAR INSCRIÇÃO
+function goInscricao(){
+window.location.href = "https://tuyeangola-isncricao.netlify.app";
 }
-}
-</script>
 
-  <button onclick="notificar()">Ativar Notificações</button>
-
-<script>
-function notificar() {
-  Notification.requestPermission().then(permission => {
-    if (permission === "granted") {
-      new Notification("TUYE ANGOLA", {
-        body: "Bem-vindo à plataforma de turismo!",
-      });
-    }
-  });
-}
-</script>
-
-  
-<section id="stats">
-<h2>📊 Estatísticas</h2>
-
-<p>Total de visitantes: <span id="visitas">0</span></p>
-<p>Inscrições: <span id="inscricoes">0</span></p>
-<script>
-// REGISTAR SERVICE WORKER
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
-}
-</script>
-
-</section>
-
-<script>
-// contador simples
+// ESTATÍSTICAS
 let visitas = localStorage.getItem("visitas") || 0;
 visitas++;
 localStorage.setItem("visitas", visitas);
-document.getElementById("visitas").innerText = visitas;
+document.getElementById("v").innerText = visitas;
 
-let inscritos = JSON.parse(localStorage.getItem("inscritos")) || [];
-document.getElementById("inscricoes").innerText = inscritos.length;
-</script>
+let inscritos = localStorage.getItem("inscritos") || 0;
+document.getElementById("i").innerText = inscritos;
 
-  <section id="videos">
-<h2>🎥 Angola em Vídeo</h2>
-
-<iframe width="100%" height="200"
-src="https://www.youtube.com/embed/7Y3bHk7XlqY"
-allowfullscreen></iframe>
-
-<iframe width="100%" height="200"
-src="https://www.youtube.com/embed/1KxkZx7xZ3E"
-allowfullscreen></iframe>
-
-</section>
- 
-/* FORM */
-form {
-  max-width:400px;
-  margin:auto;
-}
-input, select {
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-}
-
-/* SOCIAL */
-.social {
-  display:flex;
-  justify-content:center;
-  gap:15px;
-}
-
-/* FOOTER */
-footer {
-  background:#001f3f;
-  color:white;
-  text-align:center;
-  padding:15px;
-}
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<div class="hero">
-
-<video autoplay muted loop>
-<source src="video.mp4">
-</video>
-
-<div class="overlay"></div>
-
-<header>
-<img src="logo.png">
-
-<nav>
-<a href="#eventos">Eventos</a>
-<a href="#turismo">Turismo</a>
-<a href="#agenda">Agenda</a>
-<a href="#inscricao">Inscrição</a>
-</nav>
-</header>
-
-<div class="hero-content">
-<h1>TUYE ANGOLA</h1>
-<p id="slogan">Turismo • Desenvolvimento • Transformação</p>
-
-<button class="btn" onclick="document.getElementById('inscricao').scrollIntoView()">
-Inscrever-se
-</button>
-
-<button class="whatsapp" onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8')">
-Entrar no WhatsApp
-</button>
-
-</div>
-</div>
-
-<!-- EVENTOS -->
-<div class="section" id="eventos">
-<h2>Eventos</h2>
-
-<div class="card">
-<h3>Cuchi</h3>
-<p>Turismo comunitário</p>
-</div>
-
-<div class="card">
-<h3>Menongue</h3>
-<p>Fórum de desenvolvimento</p>
-</div>
-
-</div>
-
-<!-- TURISMO -->
-<div class="section" id="turismo">
-<h2>Zonas Turísticas</h2>
-
-<div class="turismo">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Kalandula_Falls.jpg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Serra_da_Leba.jpg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Benguela_coast.jpg">
-
-</div>
-</div>
-
-<!-- CARROSSEL -->
-<div class="section">
-<h2>Galeria ONU</h2>
-
-<div class="carousel">
-<img class="active" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Iona_National_Park.jpg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Cuito_Cuanavale.jpg">
-</div>
-
-</div>
-
-<!-- MAPA -->
-<div class="section">
-<h2>Mapa de Angola</h2>
-<iframe src="https://www.google.com/maps?q=Angola&output=embed"></iframe>
-</div>
-
-<!-- AGENDA -->
-<div class="section" id="agenda">
-<h2>Agenda</h2>
-<input type="text" id="eventoNome" placeholder="Nome do evento">
-<input type="date" id="eventoData">
-<button class="btn" onclick="addEvento()">Adicionar Evento</button>
-
-<ul id="listaEventos"></ul>
-</div>
-
-<!-- INSCRIÇÃO -->
-<div class="section" id="inscricao">
-<h2>Inscrição</h2>
-
-<form onsubmit="inscrever(event)">
-<input type="text" placeholder="Nome" required>
-<input type="email" placeholder="Email" required>
-
-<select>
-<option>Selecionar Evento</option>
-<option>Cuchi</option>
-<option>Menongue</option>
-</select>
-
-<button class="btn" type="submit">Enviar Inscrição</button>
-</form>
-
-</div>
-
-<!-- VISITAS -->
-<div class="section">
-<h2>Estatísticas</h2>
-<p>Visitantes: <span id="visitas"></span></p>
-</div>
-
-<!-- CONTACTO -->
-<div class="section">
-<h2>Contacto</h2>
-
-<div class="social">
-<a href="https://facebook.com">📘 Facebook</a>
-<a href="https://chat.whatsapp.com">📱 WhatsApp</a>
-</div>
-
-</div>
-  <!-- AUTORES / LIDERANÇA -->
-<div class="section" id="lideranca">
-<h2>Autores / Liderança</h2>
-
-<div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
-
-<!-- AUTOR 1 -->
-<div class="card" style="max-width:300px;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" style="width:100%; border-radius:10px;">
-<h3>Filipe Manuel</h3>
-<p><strong>Diretor Geral</strong></p>
-<p>Responsável pela visão estratégica e expansão nacional da TUYE ANGOLA.</p>
-</div>
-
-<!-- AUTOR 2 -->
-<div class="card" style="max-width:300px;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" style="width:100%; border-radius:10px;">
-<h3>Leonardo Numa Tchipepe</h3>
-<p><strong>Vice-Diretor</strong></p>
-<p>Responsável pela inovação tecnológica e desenvolvimento da plataforma.</p>
-</div>
-
-</div>
-</div>
-
-
-<footer>
-<p>© 2026 TUYE ANGOLA</p>
-</footer>
-
-<script>
-
-/* VISITAS */
-let v = localStorage.getItem("visitas") || 0;
-v++;
-localStorage.setItem("visitas", v);
-document.getElementById("visitas").innerText = v;
-
-/* CARROSSEL */
-let imgs = document.querySelectorAll(".carousel img");
-let i = 0;
-setInterval(()=>{
-imgs[i].classList.remove("active");
-i = (i+1)%imgs.length;
-imgs[i].classList.add("active");
-},3000);
-
-/* AGENDA */
+// AGENDA
 function addEvento(){
-let nome = document.getElementById("eventoNome").value;
-let data = document.getElementById("eventoData").value;
+let e = document.getElementById("evento").value;
+let d = document.getElementById("data").value;
 
 let li = document.createElement("li");
-li.innerText = nome + " - " + data;
+li.innerText = e + " - " + d;
 
-document.getElementById("listaEventos").appendChild(li);
+document.getElementById("lista").appendChild(li);
 }
 
-/* INSCRIÇÃO */
-function inscrever(e){
-e.preventDefault();
-alert("Inscrição enviada com sucesso!");
+// IA
+function ia(){
+let q = document.getElementById("q").value.toLowerCase();
+let r = document.getElementById("r");
+
+if(q.includes("angola")){
+r.innerText = "Angola é rica em cultura e turismo.";
+}else{
+r.innerText = "Pergunta não reconhecida.";
+}
 }
 
-/* MULTI IDIOMA */
+// MULTI IDIOMA
 const textos = {
-pt:{slogan:"Turismo • Desenvolvimento • Transformação"},
-en:{slogan:"Tourism • Development • Transformation"},
-fr:{slogan:"Tourisme • Développement • Transformation"}
+pt:"Turismo • Desenvolvimento • Transformação",
+en:"Tourism • Development • Transformation"
 };
 
-function setLang(l){
-document.getElementById("slogan").innerText = textos[l].slogan;
+function mudarLang(l){
+document.getElementById("slogan").innerText = textos[l];
 }
 
 </script>
