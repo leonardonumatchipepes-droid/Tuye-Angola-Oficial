@@ -15,13 +15,22 @@ body {
 
 /* HEADER */
 header {
-  background:#002f5b;
+  background:#001f3f;
   color:white;
-  padding:15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  flex-wrap:wrap;
+  padding:10px 20px;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+}
+
+.logo img {
+  height:50px;
+  margin-right:10px;
 }
 
 nav a {
@@ -31,33 +40,52 @@ nav a {
   font-weight:bold;
 }
 
-/* HERO */
+/* HERO VIDEO */
 .hero {
-  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('https://source.unsplash.com/1600x900/?angola,tourism') center/cover;
+  position:relative;
+  height:90vh;
+}
+
+.hero video {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   color:white;
   text-align:center;
-  padding:100px 20px;
 }
 
 .hero h1 {
-  font-size:40px;
+  font-size:45px;
 }
 
 button {
   padding:15px 25px;
   margin:10px;
   border:none;
-  cursor:pointer;
   border-radius:5px;
+  cursor:pointer;
+  font-size:16px;
 }
 
 .btn-primary { background:#007BFF; color:white; }
 .btn-whatsapp { background:#25D366; color:white; }
 
-/* SECTIONS */
+/* SEÇÕES */
 .section {
-  padding:50px 20px;
+  padding:60px 20px;
   text-align:center;
 }
 
@@ -65,10 +93,34 @@ button {
   background:white;
   margin:20px auto;
   padding:20px;
+  max-width:900px;
   border-radius:10px;
-  max-width:800px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
   text-align:left;
+}
+
+/* LUGARES */
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card-place {
+  width:280px;
+  margin:15px;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-place img {
+  width:100%;
+}
+
+.card-place p {
+  padding:10px;
 }
 
 /* FOOTER */
@@ -89,30 +141,44 @@ footer {
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <h2>🌍 Tuye Angola</h2>
-  <nav>
-    <a href="#autor">Autor</a>
-    <a href="#diretor">Diretor</a>
-    <a href="#vice">Vice-Diretor</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+
+<div class="logo">
+  <img src="logo.png" alt="Logo Tuye Angola">
+  <h2>Tuye Angola</h2>
+</div>
+
+<nav>
+  <a href="#video">Início</a>
+  <a href="#autor">Autor</a>
+  <a href="#direcao">Direção</a>
+  <a href="#turismo">Turismo</a>
+</nav>
+
 </header>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Turismo. Liderança. Transformação.</h1>
-  <p>Uma nova Angola começa com pessoas comprometidas</p>
+<!-- HERO VIDEO -->
+<div class="hero" id="video">
 
-  <button class="btn-primary"
-    onclick="window.open('https://tuyeangola-inscricao.netlify.app','_blank')">
-    Inscrever-se
-  </button>
+  <video autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+  </video>
 
-  <button class="btn-whatsapp"
-    onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8','_blank')">
-    Entrar no Grupo
-  </button>
+  <div class="hero-overlay">
+    <h1>Turismo. Liderança. Desenvolvimento.</h1>
+
+    <button class="btn-primary"
+      onclick="window.open('https://tuyeangola-inscricao.netlify.app','_blank')">
+      Inscrever-se
+    </button>
+
+    <button class="btn-whatsapp"
+      onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8','_blank')">
+      Entrar no Grupo
+    </button>
+  </div>
+
 </div>
 
 <!-- AUTOR -->
@@ -121,67 +187,58 @@ footer {
 
   <div class="card">
     <h3>Leonardo Numa Tchipepe</h3>
-    <p><strong>Natural:</strong> Benguela, Angola</p>
-    <p><strong>Função:</strong> Educador, Desenvolvedor e Líder</p>
-    <p><strong>Formação:</strong> Licenciando em Ensino de Matemática</p>
-    <p><strong>Especialidades:</strong> IA, Educação, Tecnologia</p>
-    <p><strong>Missão:</strong> Transformar a educação através da inovação.</p>
+    <p><strong>Função:</strong> Criador da Tuye Angola</p>
+    <p><strong>Especialidades:</strong> Educação, Tecnologia, Liderança</p>
+    <p><strong>Missão:</strong> Transformar Angola através do turismo e inovação.</p>
   </div>
 </div>
 
-<!-- DIRETOR -->
-<div class="section" id="diretor">
-  <h2>🧑‍💼 Diretor</h2>
+<!-- DIREÇÃO -->
+<div class="section" id="direcao">
+  <h2>🏢 Direção</h2>
 
   <div class="card">
-    <h3>Direção Geral Tuye Angola</h3>
-    <p><strong>Responsabilidade:</strong> Liderança estratégica da associação</p>
-    <p><strong>Área:</strong> Turismo, desenvolvimento e gestão</p>
-    <p><strong>Funções:</strong></p>
-    <ul>
-      <li>Definir visão institucional</li>
-      <li>Supervisionar projetos</li>
-      <li>Representar a organização</li>
-      <li>Garantir crescimento sustentável</li>
-    </ul>
+    <h3>Diretor Geral</h3>
+    <p>Liderança estratégica, definição de visão e expansão institucional.</p>
   </div>
-</div>
-
-<!-- VICE DIRETOR -->
-<div class="section" id="vice">
-  <h2>🧑‍💼 Vice-Diretor</h2>
 
   <div class="card">
-    <h3>Vice Direção Tuye Angola</h3>
-    <p><strong>Responsabilidade:</strong> Apoio direto à direção geral</p>
-    <p><strong>Área:</strong> Coordenação e execução</p>
-    <p><strong>Funções:</strong></p>
-    <ul>
-      <li>Substituir o diretor quando necessário</li>
-      <li>Acompanhar projetos</li>
-      <li>Garantir execução das atividades</li>
-      <li>Gestão operacional</li>
-    </ul>
+    <h3>Vice-Diretor</h3>
+    <p>Responsável pela execução, apoio e continuidade operacional.</p>
   </div>
 </div>
 
-<!-- CONTACTO -->
-<div class="section" id="contacto">
-  <h2>📞 Contacto</h2>
+<!-- TURISMO -->
+<div class="section" id="turismo">
+  <h2>🌍 Locais Turísticos de Angola</h2>
 
-  <div class="card">
-    <p><strong>WhatsApp:</strong></p>
-    <a href="https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8" target="_blank">
-      Entrar no grupo
-    </a>
+  <div class="cards">
 
-    <p><strong>Website:</strong></p>
-    <p>tuyeangola-inscricao.netlify.app</p>
+    <div class="card-place">
+      <img src="https://source.unsplash.com/400x300/?kalandula,waterfall">
+      <p>🌊 Quedas de Kalandula</p>
+    </div>
 
-    <p><strong>Local:</strong> Angola</p>
+    <div class="card-place">
+      <img src="https://source.unsplash.com/400x300/?namibe,desert">
+      <p>🏜️ Deserto do Namibe</p>
+    </div>
+
+    <div class="card-place">
+      <img src="https://source.unsplash.com/400x300/?luanda,city">
+      <p>🏙️ Luanda</p>
+    </div>
+
+    <div class="card-place">
+      <img src="https://source.unsplash.com/400x300/?tundavala">
+      <p>⛰️ Fenda da Tundavala</p>
+    </div>
+
   </div>
+
 </div>
 
+<!-- FOOTER -->
 <footer>
   <p>© 2026 Tuye Angola | Tchipepe</p>
 </footer>
