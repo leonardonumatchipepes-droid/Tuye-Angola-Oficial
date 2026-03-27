@@ -4,46 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tuye Angola</title>
+<title>Tuye Angola | Turismo e Desenvolvimento</title>
 
 <style>
+
+/* ===== BASE ===== */
 body {
   margin:0;
-  font-family:'Segoe UI', sans-serif;
-  background:#f4f6f9;
+  font-family: Arial, sans-serif;
+  color:#333;
+  background:#f5f7fa;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header {
-  background:#001f3f;
+  background:#002f5b;
   color:white;
+  padding:15px 30px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:10px 20px;
 }
 
-.logo {
-  display:flex;
-  align-items:center;
-}
-
-.logo img {
-  height:50px;
-  margin-right:10px;
+header img {
+  height:45px;
 }
 
 nav a {
   color:white;
-  margin:10px;
+  margin:0 10px;
   text-decoration:none;
   font-weight:bold;
 }
 
-/* HERO VIDEO */
+/* ===== HERO ===== */
 .hero {
   position:relative;
   height:90vh;
+  overflow:hidden;
 }
 
 .hero video {
@@ -52,89 +50,93 @@ nav a {
   object-fit:cover;
 }
 
-.hero-overlay {
+.hero-content {
   position:absolute;
   top:0;
   left:0;
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.5);
+  color:white;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  color:white;
   text-align:center;
 }
 
 .hero h1 {
-  font-size:45px;
+  font-size:48px;
+  margin-bottom:10px;
 }
 
+.hero p {
+  font-size:18px;
+  margin-bottom:20px;
+}
+
+/* ===== BOTÕES ===== */
 button {
   padding:15px 25px;
   margin:10px;
   border:none;
   border-radius:5px;
-  cursor:pointer;
   font-size:16px;
+  cursor:pointer;
 }
 
-.btn-primary { background:#007BFF; color:white; }
-.btn-whatsapp { background:#25D366; color:white; }
+.btn-blue { background:#007BFF; color:white; }
+.btn-green { background:#25D366; color:white; }
 
-/* SEÇÕES */
+/* ===== SEÇÕES ===== */
 .section {
   padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.section h2 {
   text-align:center;
+  margin-bottom:30px;
+  color:#002f5b;
 }
 
-.card {
-  background:white;
-  margin:20px auto;
-  padding:20px;
-  max-width:900px;
-  border-radius:10px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
-  text-align:left;
-}
-
-/* LUGARES */
+/* ===== CARDS ===== */
 .cards {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
 }
 
-.card-place {
-  width:280px;
-  margin:15px;
+.card {
   background:white;
+  margin:15px;
+  padding:20px;
+  width:300px;
   border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
-.card-place img {
+/* ===== IMAGENS ===== */
+.card img {
   width:100%;
+  border-radius:10px;
 }
 
-.card-place p {
-  padding:10px;
-}
-
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer {
-  background:#001f3f;
+  background:#002f5b;
   color:white;
   text-align:center;
   padding:20px;
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
   .hero h1 { font-size:28px; }
+  .cards { flex-direction:column; align-items:center; }
 }
+
 </style>
 
 </head>
@@ -143,100 +145,126 @@ footer {
 
 <!-- HEADER -->
 <header>
+  <div>
+    <img src="logo.png" alt="Tuye Angola">
+  </div>
 
-<div class="logo">
-  <img src="logo.png" alt="Logo Tuye Angola">
-  <h2>Tuye Angola</h2>
-</div>
-
-<nav>
-  <a href="#video">Início</a>
-  <a href="#autor">Autor</a>
-  <a href="#direcao">Direção</a>
-  <a href="#turismo">Turismo</a>
-</nav>
-
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#turismo">Turismo</a>
+    <a href="#direcao">Direção</a>
+  </nav>
 </header>
 
-<!-- HERO VIDEO -->
-<div class="hero" id="video">
+<!-- HERO -->
+<section class="hero" id="inicio">
 
   <video autoplay muted loop>
     <source src="video.mp4" type="video/mp4">
   </video>
 
-  <div class="hero-overlay">
-    <h1>Turismo. Liderança. Desenvolvimento.</h1>
+  <div class="hero-content">
 
-    <button class="btn-primary"
+    <h1>Tuye Angola</h1>
+    <p>Turismo. Desenvolvimento. Transformação.</p>
+
+    <button class="btn-blue"
       onclick="window.open('https://tuyeangola-inscricao.netlify.app','_blank')">
       Inscrever-se
     </button>
 
-    <button class="btn-whatsapp"
+    <button class="btn-green"
       onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8','_blank')">
       Entrar no Grupo
     </button>
+
   </div>
 
-</div>
+</section>
+
+<!-- SOBRE -->
+<section class="section" id="sobre">
+  <h2>📌 Sobre a Tuye Angola</h2>
+
+  <div class="card">
+    <p>
+      A Tuye Angola é uma associação voltada para o turismo, desenvolvimento social e formação de jovens,
+      promovendo experiências transformadoras e crescimento sustentável em Angola.
+    </p>
+  </div>
+</section>
 
 <!-- AUTOR -->
-<div class="section" id="autor">
+<section class="section">
   <h2>👤 Autor</h2>
 
   <div class="card">
     <h3>Leonardo Numa Tchipepe</h3>
-    <p><strong>Função:</strong> Criador da Tuye Angola</p>
-    <p><strong>Especialidades:</strong> Educação, Tecnologia, Liderança</p>
-    <p><strong>Missão:</strong> Transformar Angola através do turismo e inovação.</p>
+    <p>Educador, desenvolvedor e líder.</p>
+    <p>Especialista em tecnologia, educação e inovação.</p>
   </div>
-</div>
+</section>
 
 <!-- DIREÇÃO -->
-<div class="section" id="direcao">
+<section class="section" id="direcao">
   <h2>🏢 Direção</h2>
-
-  <div class="card">
-    <h3>Diretor Geral</h3>
-    <p>Liderança estratégica, definição de visão e expansão institucional.</p>
-  </div>
-
-  <div class="card">
-    <h3>Vice-Diretor</h3>
-    <p>Responsável pela execução, apoio e continuidade operacional.</p>
-  </div>
-</div>
-
-<!-- TURISMO -->
-<div class="section" id="turismo">
-  <h2>🌍 Locais Turísticos de Angola</h2>
 
   <div class="cards">
 
-    <div class="card-place">
+    <div class="card">
+      <h3>Diretor Geral</h3>
+      <p>Liderança estratégica e visão institucional.</p>
+    </div>
+
+    <div class="card">
+      <h3>Vice-Diretor</h3>
+      <p>Execução, apoio e continuidade operacional.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TURISMO -->
+<section class="section" id="turismo">
+  <h2>🌍 Turismo em Angola</h2>
+
+  <div class="cards">
+
+    <div class="card">
       <img src="https://source.unsplash.com/400x300/?kalandula,waterfall">
-      <p>🌊 Quedas de Kalandula</p>
+      <p>Quedas de Kalandula</p>
     </div>
 
-    <div class="card-place">
+    <div class="card">
       <img src="https://source.unsplash.com/400x300/?namibe,desert">
-      <p>🏜️ Deserto do Namibe</p>
+      <p>Deserto do Namibe</p>
     </div>
 
-    <div class="card-place">
-      <img src="https://source.unsplash.com/400x300/?luanda,city">
-      <p>🏙️ Luanda</p>
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?luanda">
+      <p>Luanda</p>
     </div>
 
-    <div class="card-place">
+    <div class="card">
       <img src="https://source.unsplash.com/400x300/?tundavala">
-      <p>⛰️ Fenda da Tundavala</p>
+      <p>Fenda da Tundavala</p>
     </div>
 
   </div>
 
-</div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section">
+  <h2>📞 Contacto</h2>
+
+  <div class="card">
+    <p>📍 Angola</p>
+    <p>📲 WhatsApp: Grupo Oficial</p>
+    <p>🌐 Website: tuyeangola.netlify.app</p>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
