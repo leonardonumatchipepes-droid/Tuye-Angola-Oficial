@@ -6,33 +6,32 @@
 <title>TUYE ANGOLA</title>
 
 <style>
-body { margin:0; font-family:'Segoe UI'; scroll-behavior:smooth; }
+body { margin:0; font-family:Arial; }
 
 /* HEADER */
 header {
   position:absolute;
   width:100%;
-  top:0;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 30px;
+  padding:15px;
   z-index:10;
 }
-header img { height:50px; }
+header img { height:45px; }
 
 nav a {
   color:white;
-  margin:10px;
+  margin:8px;
   text-decoration:none;
   font-weight:bold;
+  font-size:14px;
 }
 
 /* HERO */
-.hero { position:relative; height:100vh; }
+.hero { height:100vh; position:relative; }
 .hero video {
-  width:100%;
-  height:100%;
+  width:100%; height:100%;
   object-fit:cover;
 }
 .overlay {
@@ -45,98 +44,77 @@ nav a {
   position:absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%, -50%);
-  color:white;
+  transform:translate(-50%,-50%);
   text-align:center;
+  color:white;
 }
-.hero-content h1 { font-size:60px; }
 
 /* BUTTONS */
 button {
-  padding:12px 18px;
-  margin:5px;
+  padding:12px;
   border:none;
+  margin:5px;
   border-radius:5px;
   cursor:pointer;
 }
-.btn-primary { background:#007BFF; color:white; }
-.btn-whatsapp { background:#25D366; color:white; }
+.btn { background:#007BFF; color:white; }
+.whatsapp { background:#25D366; color:white; }
 
 /* SECTIONS */
 .section {
-  padding:70px 20px;
+  padding:50px 15px;
   text-align:center;
 }
 
-/* EVENTOS */
-.event {
-  background:#f4f6f9;
-  margin:15px auto;
-  padding:20px;
+/* CARDS */
+.card {
   max-width:600px;
+  margin:10px auto;
+  padding:15px;
+  background:#f4f4f4;
   border-left:5px solid #007BFF;
 }
 
 /* TURISMO */
-.turismo-container {
+.turismo {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:20px;
+  gap:15px;
 }
-.turismo-card {
+.turismo img {
   width:300px;
-  background:#fff;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-.turismo-card img {
-  width:100%;
   height:200px;
   object-fit:cover;
+  border-radius:10px;
 }
 
 /* CARROSSEL */
-.carousel {
-  max-width:800px;
-  margin:auto;
-}
-.carousel img {
-  width:100%;
-  display:none;
-}
-.carousel img.active {
-  display:block;
-}
+.carousel img { display:none; width:100%; max-width:600px; }
+.carousel img.active { display:block; margin:auto; }
 
 /* MAPA */
 iframe {
   width:100%;
-  height:400px;
-  border:0;
+  height:300px;
+}
+
+/* FORM */
+form {
+  max-width:400px;
+  margin:auto;
+}
+input, select {
+  width:100%;
+  padding:10px;
+  margin:8px 0;
 }
 
 /* SOCIAL */
-.social-link {
+.social {
   display:flex;
-  align-items:center;
   justify-content:center;
-  gap:10px;
-  margin:10px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-/* LANG */
-.lang {
-  position:fixed;
-  top:10px;
-  right:10px;
-}
-.lang button {
-  background:#007BFF;
-  color:white;
+  gap:15px;
 }
 
 /* FOOTER */
@@ -144,19 +122,12 @@ footer {
   background:#001f3f;
   color:white;
   text-align:center;
-  padding:20px;
+  padding:15px;
 }
 </style>
 </head>
 
 <body>
-
-<!-- 🌐 LANG -->
-<div class="lang">
-<button onclick="setLang('pt')">PT</button>
-<button onclick="setLang('en')">EN</button>
-<button onclick="setLang('fr')">FR</button>
-</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -169,21 +140,25 @@ footer {
 
 <header>
 <img src="logo.png">
+
 <nav>
 <a href="#eventos">Eventos</a>
 <a href="#turismo">Turismo</a>
-<a href="#mapa">Mapa</a>
-<a href="#contacto">Contacto</a>
+<a href="#agenda">Agenda</a>
+<a href="#inscricao">Inscrição</a>
 </nav>
 </header>
 
 <div class="hero-content">
 <h1>TUYE ANGOLA</h1>
-<p data-i18n="slogan"></p>
+<p id="slogan">Turismo • Desenvolvimento • Transformação</p>
 
-<button class="btn-primary">Inscrever</button>
-<button class="btn-whatsapp" onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8')">
-Entrar no Grupo
+<button class="btn" onclick="document.getElementById('inscricao').scrollIntoView()">
+Inscrever-se
+</button>
+
+<button class="whatsapp" onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8')">
+Entrar no WhatsApp
 </button>
 
 </div>
@@ -191,74 +166,120 @@ Entrar no Grupo
 
 <!-- EVENTOS -->
 <div class="section" id="eventos">
-<h2 data-i18n="eventos"></h2>
+<h2>Eventos</h2>
 
-<div class="event">
+<div class="card">
 <h3>Cuchi</h3>
-<p>Turismo comunitário.</p>
+<p>Turismo comunitário</p>
 </div>
 
-<div class="event">
-<h3>Cuito Cuanavale</h3>
-<p>Turismo histórico.</p>
+<div class="card">
+<h3>Menongue</h3>
+<p>Fórum de desenvolvimento</p>
 </div>
 
 </div>
 
 <!-- TURISMO -->
 <div class="section" id="turismo">
-<h2 data-i18n="turismo"></h2>
+<h2>Zonas Turísticas</h2>
 
-<div class="turismo-container">
+<div class="turismo">
 
-<div class="turismo-card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Kalandula_Falls.jpg">
-<p>Kalandula</p>
-</div>
-
-<div class="turismo-card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Serra_da_Leba.jpg">
-<p>Serra da Leba</p>
-</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Benguela_coast.jpg">
 
+</div>
 </div>
 
 <!-- CARROSSEL -->
+<div class="section">
+<h2>Galeria ONU</h2>
+
 <div class="carousel">
-<img class="active" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Benguela_coast.jpg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Iona_National_Park.jpg">
+<img class="active" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Iona_National_Park.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Cuito_Cuanavale.jpg">
 </div>
 
 </div>
 
 <!-- MAPA -->
-<div class="section" id="mapa">
+<div class="section">
 <h2>Mapa de Angola</h2>
-
 <iframe src="https://www.google.com/maps?q=Angola&output=embed"></iframe>
+</div>
+
+<!-- AGENDA -->
+<div class="section" id="agenda">
+<h2>Agenda</h2>
+<input type="text" id="eventoNome" placeholder="Nome do evento">
+<input type="date" id="eventoData">
+<button class="btn" onclick="addEvento()">Adicionar Evento</button>
+
+<ul id="listaEventos"></ul>
+</div>
+
+<!-- INSCRIÇÃO -->
+<div class="section" id="inscricao">
+<h2>Inscrição</h2>
+
+<form onsubmit="inscrever(event)">
+<input type="text" placeholder="Nome" required>
+<input type="email" placeholder="Email" required>
+
+<select>
+<option>Selecionar Evento</option>
+<option>Cuchi</option>
+<option>Menongue</option>
+</select>
+
+<button class="btn" type="submit">Enviar Inscrição</button>
+</form>
 
 </div>
 
-<!-- ESTATISTICAS -->
+<!-- VISITAS -->
 <div class="section">
 <h2>Estatísticas</h2>
 <p>Visitantes: <span id="visitas"></span></p>
 </div>
 
 <!-- CONTACTO -->
-<div class="section" id="contacto">
-
+<div class="section">
 <h2>Contacto</h2>
 
-<a class="social-link" href="https://www.facebook.com" target="_blank">
-📘 Facebook
-</a>
-
-<a class="social-link" href="https://chat.whatsapp.com" target="_blank">
-📱 WhatsApp
-</a>
+<div class="social">
+<a href="https://facebook.com">📘 Facebook</a>
+<a href="https://chat.whatsapp.com">📱 WhatsApp</a>
+</div>
 
 </div>
+  <!-- AUTORES / LIDERANÇA -->
+<div class="section" id="lideranca">
+<h2>Autores / Liderança</h2>
+
+<div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+
+<!-- AUTOR 1 -->
+<div class="card" style="max-width:300px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" style="width:100%; border-radius:10px;">
+<h3>Filipe Manuel</h3>
+<p><strong>Diretor Geral</strong></p>
+<p>Responsável pela visão estratégica e expansão nacional da TUYE ANGOLA.</p>
+</div>
+
+<!-- AUTOR 2 -->
+<div class="card" style="max-width:300px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" style="width:100%; border-radius:10px;">
+<h3>Leonardo Numa Tchipepe</h3>
+<p><strong>Vice-Diretor</strong></p>
+<p>Responsável pela inovação tecnológica e desenvolvimento da plataforma.</p>
+</div>
+
+</div>
+</div>
+
 
 <footer>
 <p>© 2026 TUYE ANGOLA</p>
@@ -273,29 +294,41 @@ localStorage.setItem("visitas", v);
 document.getElementById("visitas").innerText = v;
 
 /* CARROSSEL */
-let slides = document.querySelectorAll(".carousel img");
+let imgs = document.querySelectorAll(".carousel img");
 let i = 0;
-
 setInterval(()=>{
-slides[i].classList.remove("active");
-i = (i+1)%slides.length;
-slides[i].classList.add("active");
+imgs[i].classList.remove("active");
+i = (i+1)%imgs.length;
+imgs[i].classList.add("active");
 },3000);
 
+/* AGENDA */
+function addEvento(){
+let nome = document.getElementById("eventoNome").value;
+let data = document.getElementById("eventoData").value;
+
+let li = document.createElement("li");
+li.innerText = nome + " - " + data;
+
+document.getElementById("listaEventos").appendChild(li);
+}
+
+/* INSCRIÇÃO */
+function inscrever(e){
+e.preventDefault();
+alert("Inscrição enviada com sucesso!");
+}
+
 /* MULTI IDIOMA */
-const txt = {
-pt:{eventos:"Eventos", turismo:"Turismo", slogan:"Turismo • Desenvolvimento • Transformação"},
-en:{eventos:"Events", turismo:"Tourism", slogan:"Tourism • Development • Transformation"},
-fr:{eventos:"Événements", turismo:"Tourisme", slogan:"Tourisme • Développement • Transformation"}
+const textos = {
+pt:{slogan:"Turismo • Desenvolvimento • Transformação"},
+en:{slogan:"Tourism • Development • Transformation"},
+fr:{slogan:"Tourisme • Développement • Transformation"}
 };
 
 function setLang(l){
-document.querySelectorAll("[data-i18n]").forEach(e=>{
-e.innerText = txt[l][e.getAttribute("data-i18n")];
-});
+document.getElementById("slogan").innerText = textos[l].slogan;
 }
-
-setLang("pt");
 
 </script>
 
