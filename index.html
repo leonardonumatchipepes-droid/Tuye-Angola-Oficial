@@ -4,84 +4,84 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tuye Angola - Viagens Além do Mapa</title>
+<title>Tuye Angola</title>
 
-<!-- Estilo -->
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:#f4f6f9;
 }
 
+/* HEADER */
 header {
-    background: #0b3d91;
-    color: white;
-    padding: 15px;
-    text-align: center;
+  background:#002f5b;
+  color:white;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
+nav a {
+  color:white;
+  margin:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* HERO */
 .hero {
-    text-align: center;
-    padding: 20px;
+  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('https://source.unsplash.com/1600x900/?angola,tourism') center/cover;
+  color:white;
+  text-align:center;
+  padding:100px 20px;
 }
 
-.hero button {
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 80%;
+.hero h1 {
+  font-size:40px;
 }
 
-.hero button.inscrever {
-    background: #ff9800;
+button {
+  padding:15px 25px;
+  margin:10px;
+  border:none;
+  cursor:pointer;
+  border-radius:5px;
 }
 
-.video {
-    text-align: center;
-    padding: 20px;
-}
+.btn-primary { background:#007BFF; color:white; }
+.btn-whatsapp { background:#25D366; color:white; }
 
-video {
-    width: 90%;
-    border-radius: 10px;
-}
-
+/* SECTIONS */
 .section {
-    padding: 20px;
-}
-
-.cards {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  padding:50px 20px;
+  text-align:center;
 }
 
 .card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  background:white;
+  margin:20px auto;
+  padding:20px;
+  border-radius:10px;
+  max-width:800px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  text-align:left;
 }
 
-.card img {
-    width: 100%;
-}
-
-.card p {
-    padding: 10px;
-}
-
+/* FOOTER */
 footer {
-    background: #0b3d91;
-    color: white;
-    text-align: center;
-    padding: 15px;
+  background:#001f3f;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1 { font-size:28px; }
 }
 </style>
 
@@ -90,92 +90,100 @@ footer {
 <body>
 
 <header>
-    <h1>🌍 Tuye Angola</h1>
-    <p>Viagens Além do Mapa</p>
+  <h2>🌍 Tuye Angola</h2>
+  <nav>
+    <a href="#autor">Autor</a>
+    <a href="#diretor">Diretor</a>
+    <a href="#vice">Vice-Diretor</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
 <!-- HERO -->
 <div class="hero">
-    <h2>Explore Angola como nunca antes</h2>
+  <h1>Turismo. Liderança. Transformação.</h1>
+  <p>Uma nova Angola começa com pessoas comprometidas</p>
 
-    <!-- BOTÃO INSCRIÇÃO -->
-    <button class="inscrever" onclick="window.open('https://tuyeangola-inscricao.netlify.app', '_blank')">
-        📲 Inscrever-se
-    </button>
+  <button class="btn-primary"
+    onclick="window.open('https://tuyeangola-inscricao.netlify.app','_blank')">
+    Inscrever-se
+  </button>
 
-    <!-- BOTÃO WHATSAPP -->
-    <button onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8', '_blank')">
-        💬 Entrar no Grupo WhatsApp
-    </button>
+  <button class="btn-whatsapp"
+    onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8','_blank')">
+    Entrar no Grupo
+  </button>
 </div>
 
-<!-- VÍDEO -->
-<div class="video">
-    <h2>🎥 Turismo em Angola</h2>
-    <video controls>
-        <source src="video.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo.
-    </video>
+<!-- AUTOR -->
+<div class="section" id="autor">
+  <h2>👤 Autor</h2>
+
+  <div class="card">
+    <h3>Leonardo Numa Tchipepe</h3>
+    <p><strong>Natural:</strong> Benguela, Angola</p>
+    <p><strong>Função:</strong> Educador, Desenvolvedor e Líder</p>
+    <p><strong>Formação:</strong> Licenciando em Ensino de Matemática</p>
+    <p><strong>Especialidades:</strong> IA, Educação, Tecnologia</p>
+    <p><strong>Missão:</strong> Transformar a educação através da inovação.</p>
+  </div>
 </div>
 
-<!-- LUGARES TURÍSTICOS -->
-<div class="section">
-    <h2>🗺️ Locais Turísticos</h2>
+<!-- DIRETOR -->
+<div class="section" id="diretor">
+  <h2>🧑‍💼 Diretor</h2>
 
-    <div class="cards">
-
-        <div class="card">
-            <img src="https://source.unsplash.com/800x600/?kalandula,angola" />
-            <p>🌊 Quedas de Kalandula</p>
-        </div>
-
-        <div class="card">
-            <img src="https://source.unsplash.com/800x600/?namibe,desert" />
-            <p>🏜️ Deserto do Namibe</p>
-        </div>
-
-        <div class="card">
-            <img src="https://source.unsplash.com/800x600/?luanda,city" />
-            <p>🏙️ Cidade de Luanda</p>
-        </div>
-
-        <div class="card">
-            <img src="https://source.unsplash.com/800x600/?tundavala,angola" />
-            <p>⛰️ Fenda da Tundavala</p>
-        </div>
-
-    </div>
-</div>
-
-<!-- INFORMAÇÃO -->
-<div class="section">
-    <h2>📍 Sobre a Tuye Angola</h2>
-    <p>
-        A Tuye Angola é uma associação dedicada ao turismo, viagens e desenvolvimento,
-        promovendo a descoberta dos melhores destinos de Angola e experiências únicas.
-    </p>
-
-    <p>
-        📌 Sede: Angola  
-        📞 Contato: +244 929 31 12 20
-        🌐 Website: tuyeangola.netlify.app  
-        🌐tuyeangola@gmail.com
-    </p>
-</div>
-
-<!-- EVENTOS -->
-<div class="section">
-    <h2>📅 Agenda de Eventos</h2>
+  <div class="card">
+    <h3>Direção Geral Tuye Angola</h3>
+    <p><strong>Responsabilidade:</strong> Liderança estratégica da associação</p>
+    <p><strong>Área:</strong> Turismo, desenvolvimento e gestão</p>
+    <p><strong>Funções:</strong></p>
     <ul>
-        <li>📍 Excursão às Quedas de Kalandula</li>
-        <li>📍 Passeio no Namibe</li>
-        <li>📍 Roteiro histórico de Luanda</li>
+      <li>Definir visão institucional</li>
+      <li>Supervisionar projetos</li>
+      <li>Representar a organização</li>
+      <li>Garantir crescimento sustentável</li>
     </ul>
+  </div>
 </div>
 
-<!-- RODAPÉ -->
+<!-- VICE DIRETOR -->
+<div class="section" id="vice">
+  <h2>🧑‍💼 Vice-Diretor</h2>
+
+  <div class="card">
+    <h3>Vice Direção Tuye Angola</h3>
+    <p><strong>Responsabilidade:</strong> Apoio direto à direção geral</p>
+    <p><strong>Área:</strong> Coordenação e execução</p>
+    <p><strong>Funções:</strong></p>
+    <ul>
+      <li>Substituir o diretor quando necessário</li>
+      <li>Acompanhar projetos</li>
+      <li>Garantir execução das atividades</li>
+      <li>Gestão operacional</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CONTACTO -->
+<div class="section" id="contacto">
+  <h2>📞 Contacto</h2>
+
+  <div class="card">
+    <p><strong>WhatsApp:</strong></p>
+    <a href="https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8" target="_blank">
+      Entrar no grupo
+    </a>
+
+    <p><strong>Website:</strong></p>
+    <p>tuyeangola-inscricao.netlify.app</p>
+
+    <p><strong>Local:</strong> Angola</p>
+  </div>
+</div>
+
 <footer>
-    <p>© 2026 Tuye Angola</p>
+  <p>© 2026 Tuye Angola | Tchipepe</p>
 </footer>
 
 </body>
