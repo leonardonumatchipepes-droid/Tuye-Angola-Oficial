@@ -30,10 +30,7 @@ nav a {
 }
 
 /* HERO */
-.hero {
-  position:relative;
-  height:100vh;
-}
+.hero { position:relative; height:100vh; }
 .hero video {
   width:100%;
   height:100%;
@@ -57,7 +54,7 @@ nav a {
   text-align:center;
 }
 
-.hero-content h1 { font-size:50px; }
+.hero-content h1 { font-size:55px; }
 
 button {
   padding:15px 20px;
@@ -65,14 +62,16 @@ button {
   border:none;
   border-radius:5px;
   cursor:pointer;
+  transition:0.3s;
 }
+button:hover { transform:scale(1.05); }
 
 .btn-primary { background:#007BFF; color:white; }
 .btn-whatsapp { background:#25D366; color:white; }
 
 /* SECTIONS */
 .section {
-  padding:60px 20px;
+  padding:70px 20px;
   text-align:center;
 }
 
@@ -84,15 +83,37 @@ button {
   max-width:600px;
   border-left:5px solid #007BFF;
   text-align:left;
+  transition:0.3s;
+}
+.event:hover {
+  transform:scale(1.02);
 }
 
-/* LINKS */
-.gov-links a {
-  display:block;
-  margin:10px;
-  font-weight:bold;
-  text-decoration:none;
-  color:#002f5b;
+/* TURISMO */
+.turismo-container {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
+.turismo-card {
+  width:300px;
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+.turismo-card:hover {
+  transform:translateY(-10px);
+}
+.turismo-card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.turismo-card p {
+  padding:10px;
 }
 
 /* SOCIAL */
@@ -101,23 +122,9 @@ button {
   align-items:center;
   justify-content:center;
   gap:10px;
-  margin:10px;
+  margin:15px;
   font-weight:bold;
   text-decoration:none;
-}
-
-/* LIDERANÇA */
-.leader-card {
-  background:#f4f6f9;
-  padding:20px;
-  border-radius:10px;
-  width:300px;
-  margin:10px;
-}
-
-.leader-card img {
-  width:100%;
-  border-radius:10px;
 }
 
 /* FOOTER */
@@ -142,25 +149,25 @@ footer {
 <div class="overlay"></div>
 
 <header>
-<img src="logo.png" alt="Logo">
+<img src="logo.png">
+
 <nav>
 <a href="#eventos">Eventos</a>
+<a href="#turismo">Turismo</a>
 <a href="#doacao">Doar</a>
-<a href="#governo">Parcerias</a>
-<a href="#lideranca">Liderança</a>
 <a href="#contacto">Contacto</a>
 </nav>
+
 </header>
 
 <div class="hero-content">
 <h1>TUYE ANGOLA</h1>
 <p>Turismo • Desenvolvimento • Transformação</p>
 
-<button class="btn-primary" onclick="window.open('#','_blank')">
-Inscrever-se
-</button>
+<button class="btn-primary">Inscrever-se</button>
 
-<button class="btn-whatsapp" onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8','_blank')">
+<button class="btn-whatsapp"
+onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8','_blank')">
 Entrar no Grupo
 </button>
 
@@ -189,203 +196,71 @@ Entrar no Grupo
 
 </div>
 
+<!-- TURISMO -->
+<div class="section" id="turismo">
+<h2>Zonas Turísticas de Angola</h2>
+
+<div class="turismo-container">
+
+<div class="turismo-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Kalandula_Falls.jpg">
+<p>Quedas de Kalandula</p>
+</div>
+
+<div class="turismo-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Benguela_coast.jpg">
+<p>Praias de Benguela</p>
+</div>
+
+<div class="turismo-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Serra_da_Leba.jpg">
+<p>Serra da Leba</p>
+</div>
+
+<div class="turismo-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Iona_National_Park.jpg">
+<p>Parque Nacional do Iona</p>
+</div>
+
+<div class="turismo-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Cuito_Cuanavale.jpg">
+<p>Cuito Cuanavale</p>
+</div>
+
+</div>
+</div>
+
 <!-- DOAÇÃO -->
 <div class="section" id="doacao">
 <h2>Apoie a Missão</h2>
-<p><strong>Multicaixa Express:</strong> 929 311 220</p>
-<p><strong>Governo Provincial do Cubango</strong></p>
-</div>
-
-<!-- PARCERIAS -->
-<div class="section" id="governo">
-<h2>Parcerias</h2>
-
-<div class="gov-links">
-<a href="https://minttics.gov.ao/" target="_blank">Ministério do Turismo</a>
-<a href="https://governo.gov.ao/" target="_blank">Portal do Governo</a>
-<a href="https://mincultur.gov.ao/" target="_blank">Ministério da Cultura</a>
-</div>
-
-</div>
-
-<!-- LIDERANÇA -->
-<div class="section" id="lideranca">
-<h2>Liderança</h2>
-
-<div style="display:flex; flex-wrap:wrap; justify-content:center;">
-
-<div class="leader-card">
-<img src="autor1.png">
-<h3>Diretor</h3>
-<p><strong>Filipe Manuel</strong></p>
-<p>Líder estratégico da TUYE ANGOLA, responsável pela visão institucional e expansão nacional.</p>
-</div>
-
-<div class="leader-card">
-<img src="autor.png">
-<h3>Vice Diretor</h3>
-<p><strong>Leonardo Numa Tchipepe</strong></p>
-<p>Responsável pela inovação, tecnologia e desenvolvimento educacional da plataforma TUYE ANGOLA.</p>
-</div>
-
-</div>
+<p><strong>Multicaixa:</strong> 929 311 220</p>
 </div>
 
 <!-- CONTACTO -->
 <div class="section" id="contacto">
 <h2>Contacto</h2>
 
+<!-- FACEBOOK -->
 <a class="social-link" href="https://www.facebook.com/share/1CcP8r8fC5/?mibextid=wwXIfr" target="_blank">
-📘 Facebook Oficial
+<svg width="24" height="24" viewBox="0 0 24 24" fill="#1877F2">
+<path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2V9.5c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12"/>
+</svg>
+Facebook Oficial
 </a>
 
+<!-- WHATSAPP -->
 <a class="social-link" href="https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8" target="_blank">
-📱 Grupo WhatsApp
+<svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366">
+<path d="M20.5 3.5A11 11 0 0 0 3.9 18.3L3 22l3.9-1A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.3.6.6-2.2-.2-.3A8 8 0 1 1 12 20zm4.6-6.1c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.7.7-.9.9-.2.2-.3.2-.6.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.5l.4-.5c.1-.1.2-.3.2-.5s-.1-.3-.1-.5c-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 2s.9 2.3 1 2.4c.1.1 1.7 2.6 4.1 3.6.6.3 1 .4 1.4.5.6.2 1.2.2 1.6.1.5-.1 1.3-.5 1.5-1 .2-.5.2-1 .2-1.1 0-.2-.2-.3-.4-.4z"/>
+</svg>
+Grupo WhatsApp
 </a>
 
 </div>
 
-
-  /* ANIMAÇÕES */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* CARDS TURÍSTICOS */
-.card {
-  background:#fff;
-  border-radius:10px;
-  overflow:hidden;
-  width:300px;
-  margin:15px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
-  transition:transform 0.3s;
-}
-
-.card:hover {
-  transform:scale(1.05);
-}
-
-.card img {
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-
-.card-content {
-  padding:15px;
-}
-
-
-  <!-- TURISMO -->
-<div class="section fade-in" id="turismo">
-<h2>Zonas Turísticas de Angola 🇦🇴</h2>
-
-<p>Descubra os tesouros naturais e culturais de Angola, com destaque especial para a província do Cubango.</p>
-
-<div style="display:flex; flex-wrap:wrap; justify-content:center;">
-
-<!-- CUBANGO -->
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Kalandula_Falls_Angola.jpg">
-<div class="card-content">
-<h3>Cubango</h3>
-<p>Região rica em cultura, rios e biodiversidade.</p>
-</div>
-</div>
-
-<!-- CUCHI -->
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Angola_landscape.jpg">
-<div class="card-content">
-<h3>Cuchi</h3>
-<p>Belezas naturais e turismo comunitário.</p>
-</div>
-</div>
-
-<!-- CUITO CUANAVALE -->
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Angolan_savanna.jpg">
-<div class="card-content">
-<h3>Cuito Cuanavale</h3>
-<p>História e património nacional de grande importância.</p>
-</div>
-</div>
-
-<!-- MENONGUE -->
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Angola_river.jpg">
-<div class="card-content">
-<h3>Menongue</h3>
-<p>Centro cultural e estratégico do Cuando Cubango.</p>
-</div>
-</div>
-
-</div>
-</div>
-
-
-  <!-- INSCRIÇÃO -->
-<div class="section fade-in" id="inscricao">
-<h2>Inscrição em Eventos</h2>
-
-<form onsubmit="enviarInscricao(event)" style="max-width:500px; margin:auto; text-align:left;">
-  
-  <input type="text" id="nome" placeholder="Nome completo" required style="width:100%; padding:10px; margin:10px 0;">
-  
-  <input type="email" id="email" placeholder="Email" required style="width:100%; padding:10px; margin:10px 0;">
-  
-  <select id="evento" style="width:100%; padding:10px; margin:10px 0;">
-    <option>Cuchi</option>
-    <option>Cuito Cuanavale</option>
-    <option>Menongue</option>
-  </select>
-
-  <button type="submit" class="btn-primary">Inscrever-se</button>
-
-</form>
-</div>
-
-  
 <footer>
-<p>© 2026 TUYE ANGOLA | Plataforma Nacional</p>
+<p>© 2026 TUYE ANGOLA</p>
 </footer>
-
-
-  <script>
-function enviarInscricao(event) {
-  event.preventDefault();
-
-  let nome = document.getElementById("nome").value;
-  let email = document.getElementById("email").value;
-  let evento = document.getElementById("evento").value;
-
-  let mensagem = `Olá, quero me inscrever:\nNome: ${nome}\nEmail: ${email}\nEvento: ${evento}`;
-
-  let link = `https://wa.me/244929311220?text=${encodeURIComponent(mensagem)}`;
-
-  window.open(link, "_blank");
-}
-
-/* ANIMAÇÃO AO SCROLL */
-const elements = document.querySelectorAll('.fade-in');
-
-window.addEventListener('scroll', () => {
-  elements.forEach(el => {
-    const position = el.getBoundingClientRect().top;
-    if(position < window.innerHeight - 100){
-      el.classList.add('show');
-    }
-  });
-});
-</script>
 
 </body>
 </html>
