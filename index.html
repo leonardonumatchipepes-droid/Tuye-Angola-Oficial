@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TUYE ANGOLA</title>
+
+<style>
+body { margin:0; font-family:'Segoe UI'; scroll-behavior:smooth; }
+
+/* HEADER */
+header {
+  position:absolute;
+  width:100%;
+  top:0;
+  left:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  z-index:10;
+}
+header img {
+  height:50px;
+}
+nav a {
+  color:white;
+  margin:15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* HERO VIDEO FULL */
+.hero {
+  position:relative;
+  height:100vh;
+}
+.hero video {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+}
+.hero-content {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  color:white;
+  text-align:center;
+  animation:fadeIn 2s;
+}
+.hero-content h1 { font-size:50px; }
+
+button {
+  padding:15px 25px;
+  margin:10px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-primary { background:#007BFF; color:white; }
+.btn-whatsapp { background:#25D366; color:white; }
+
+/* SECTION */
+.section {
+  padding:60px 20px;
+  text-align:center;
+}
+
+/* EVENTOS */
+.event {
+  background:#f4f6f9;
+  margin:15px auto;
+  padding:20px;
+  max-width:600px;
+  border-left:5px solid #007BFF;
+  text-align:left;
+}
+
+/* GOVERNO */
+.gov-links a {
+  display:block;
+  margin:10px;
+  color:#002f5b;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer {
+  background:#001f3f;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO COM VIDEO -->
+<div class="hero">
+
+<video autoplay muted loop>
+<source src="video.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<header>
+<img src="logo.png" alt="Logo TUYE">
+<nav>
+<a href="#eventos">Eventos</a>
+<a href="#doacao">Doar</a>
+<a href="#governo">Parcerias</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
+
+<div class="hero-content">
+<h1>TUYE ANGOLA</h1>
+<p>Turismo • Desenvolvimento • Transformação</p>
+
+<button class="btn-primary" onclick="window.open('https://leonardonumatchipepes-droid.github.io/Tuye-Angola/?utm_source=chatgpt.com','_blank')">
+Inscrever-se
+</button>
+
+<button class="btn-whatsapp" onclick="window.open('https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8?mode=gi_t','_blank')">
+Entrar no Grupo
+</button>
+
+</div>
+
+</div>
+
+<!-- EVENTOS -->
+<div class="section" id="eventos">
+<h2>Eventos Oficiais</h2>
+
+<div class="event">
+<h3>Cuchi – Turismo Comunitário</h3>
+<p>Promoção do desenvolvimento sustentável e capacitação local.</p>
+</div>
+
+<div class="event">
+<h3>Cuito Cuanavale – Turismo Histórico</h3>
+<p>Valorização da história e identidade nacional.</p>
+</div>
+
+<div class="event">
+<h3>Cuito Cuanavale – Liderança Jovem</h3>
+<p>Formação de líderes para transformação social.</p>
+</div>
+
+<div class="event">
+<h3>Menongue – Fórum de Cultura e Desenvolvimento</h3>
+<p>Integração regional e promoção cultural.</p>
+</div>
+
+</div>
+
+<!-- DOAÇÃO -->
+<div class="section" id="doacao">
+<h2>Apoie a Missão</h2>
+
+<p><strong>Multicaixa Express:</strong> 929 311 220</p>
+
+<p><strong>Parceiro:</strong><br>
+Governo Provincial do Cubango<br>
+Gabinete do Turismo e Cultura</p>
+
+</div>
+
+<!-- GOVERNO LINKS -->
+<div class="section" id="governo">
+<h2>Parcerias Institucionais</h2>
+
+<div class="gov-links">
+<a href="https://minttics.gov.ao/" target="_blank">
+Ministério do Turismo (Angola)
+</a>
+
+<a href="https://governo.gov.ao/" target="_blank">
+Portal do Governo de Angola
+</a>
+
+<a href="https://mcta.gov.ao/" target="_blank">
+Ministério da Cultura e Turismo
+</a>
+</div>
+
+</div>
+
+<!-- CONTACTO -->
+<div class="section" id="contacto">
+<h2>Contacto</h2>
+
+<p>
+<a href="https://www.facebook.com/share/1CcP8r8fC5/?mibextid=wwXIfr" target="_blank">
+Facebook Oficial
+</a>
+</p>
+
+<p>
+<a href="https://chat.whatsapp.com/FnTC4KuSnvLJiep9CGWWv8?mode=gi_t" target="_blank">
+Grupo WhatsApp
+</a>
+</p>
+
+</div>
+
+<footer>
+<p>© 2026 TUYE ANGOLA | Plataforma Nacional</p>
+</footer>
+
+</body>
+</html>
